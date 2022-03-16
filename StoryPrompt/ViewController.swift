@@ -29,6 +29,11 @@ class ViewController: UIViewController {
             storyPrompt.genre = .scifi
         }
     }
+    //Keyboard when is toached
+    @IBAction func generateStoryPrompt(_ sender: Any) {
+        updateStoryPrompt()
+        print(storyPrompt)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         numberSlider.value = 7.5
@@ -37,8 +42,32 @@ class ViewController: UIViewController {
         storyPrompt.verb = "burps"
         storyPrompt.number = Int(numberSlider.value)
         print(storyPrompt)
-        print("Hello World!")
+        // nounTextField.delegate = self   (This is a way to delegate from code
         // Do any additional setup after loading the view.
+    }
+    func updateStoryPrompt(){
+        storyPrompt.noun = nounTextField.text ?? ""
+        storyPrompt.adjective = adjectiveTextField.text ?? ""
+        storyPrompt.verb = verbTextField.text ?? ""
     }
 }
 
+extension ViewController : UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        updateStoryPrompt()
+        return true //Indicate that we want the default keyboard behaviour
+    }
+}
+/*
+//This only works if the user dismiss the keyboard
+extension ViewController : UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        storyPrompt.noun = nounTextField.text ?? ""
+        storyPrompt.adjective = adjectiveTextField.text ?? ""
+        storyPrompt.verb = verbTextField.text ?? ""
+        return true //Indicate that we want the default keyboard behaviour
+    }
+}
+*/
