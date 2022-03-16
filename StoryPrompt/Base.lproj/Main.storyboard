@@ -101,6 +101,9 @@
                                             <segment title="Sci-Fi"/>
                                             <segment title="Horror"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="changeStoryType:" destination="BYZ-38-t0r" eventType="valueChanged" id="Be2-Ox-1XS"/>
+                                        </connections>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Qb-OX-npW">
                                         <rect key="frame" x="0.0" y="400.5" width="374" height="31"/>
