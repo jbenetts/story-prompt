@@ -6,15 +6,17 @@
 //
 
 import UIKit
+import PhotosUI
 
 class ViewController: UIViewController {
-    //Items
     let storyPrompt = StoryPromptEntry()
+    //Items
     @IBOutlet weak var nounTextField: UITextField!
     @IBOutlet weak var adjectiveTextField: UITextField!
     @IBOutlet weak var verbTextField: UITextField!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var numberSlider: UISlider!
+    @IBOutlet weak var storyPromptImageView: UIImageView!
     //Action Items as functions
     //Change the number label depending on the slider
     @IBAction func changeNumber(_ sender: UISlider) {
@@ -28,6 +30,7 @@ class ViewController: UIViewController {
         } else {
             storyPrompt.genre = .scifi
         }
+        print(storyPrompt.genre)
     }
     //Keyboard when is toached
     @IBAction func generateStoryPrompt(_ sender: Any) {
@@ -41,14 +44,24 @@ class ViewController: UIViewController {
         storyPrompt.adjective = "smelly"
         storyPrompt.verb = "burps"
         storyPrompt.number = Int(numberSlider.value)
-        print(storyPrompt)
-        // nounTextField.delegate = self   (This is a way to delegate from code
+        storyPromptImageView.isUserInteractionEnabled = true
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeImage))
+        storyPromptImageView.addGestureRecognizer(gestureRecognizer)
+        // nounTextField.delegate = self (This is a way to delegate from code)
         // Do any additional setup after loading the view.
     }
     func updateStoryPrompt(){
         storyPrompt.noun = nounTextField.text ?? ""
         storyPrompt.adjective = adjectiveTextField.text ?? ""
         storyPrompt.verb = verbTextField.text ?? ""
+    }
+    @objc func changeImage(){
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .images
+        configuration.selectionLimit = 1
+        let controller = PHPickerViewController(configuration: configuration)
+        controller.delegate = self
+        present(controller, animated: true)
     }
 }
 
@@ -59,6 +72,26 @@ extension ViewController : UITextFieldDelegate{
         return true //Indicate that we want the default keyboard behaviour
     }
 }
+
+extension ViewController : PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        if !results.isEmpty{
+            let result = results.first!
+            let itemProvider = result.itemProvider
+            if itemProvider.canLoadObject(ofClass: UIImage.self){
+                itemProvider.loadObject(ofClass: UIImage.self){
+                    [weak self] image, error in guard let image = image as? UIImage else{
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        self?.storyPromptImageView.image = image
+                    }
+                }
+            }
+        }
+    }
+}
+
 /*
 //This only works if the user dismiss the keyboard
 extension ViewController : UITextFieldDelegate{
