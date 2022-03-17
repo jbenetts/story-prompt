@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8DAA74B527E3A6D50059A9C6 /* StoryPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAA74B427E3A6D50059A9C6 /* StoryPromptViewController.swift */; };
 		8DF68DC127E10C020041859C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF68DC027E10C020041859C /* AppDelegate.swift */; };
 		8DF68DC327E10C020041859C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF68DC227E10C020041859C /* SceneDelegate.swift */; };
 		8DF68DC527E10C020041859C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF68DC427E10C020041859C /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8DAA74B427E3A6D50059A9C6 /* StoryPromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPromptViewController.swift; sourceTree = "<group>"; };
 		8DF68DBD27E10C020041859C /* StoryPrompt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoryPrompt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DF68DC027E10C020041859C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DF68DC227E10C020041859C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8DAA74B627E3A6E30059A9C6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8DF68DC427E10C020041859C /* ViewController.swift */,
+				8DAA74B427E3A6D50059A9C6 /* StoryPromptViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		8DF68DB427E10C020041859C = {
 			isa = PBXGroup;
 			children = (
@@ -60,10 +71,10 @@
 		8DF68DBF27E10C020041859C /* StoryPrompt */ = {
 			isa = PBXGroup;
 			children = (
+				8DAA74B627E3A6E30059A9C6 /* ViewControllers */,
 				8DF68DD427E10C0C0041859C /* Model */,
 				8DF68DC027E10C020041859C /* AppDelegate.swift */,
 				8DF68DC227E10C020041859C /* SceneDelegate.swift */,
-				8DF68DC427E10C020041859C /* ViewController.swift */,
 				8DF68DC627E10C020041859C /* Main.storyboard */,
 				8DF68DC927E10C020041859C /* Assets.xcassets */,
 				8DF68DCB27E10C020041859C /* LaunchScreen.storyboard */,
@@ -152,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DAA74B527E3A6D50059A9C6 /* StoryPromptViewController.swift in Sources */,
 				8DF68DD827E10D150041859C /* StoryPrompts.swift in Sources */,
 				8DF68DC527E10C020041859C /* ViewController.swift in Sources */,
 				8DF68DC127E10C020041859C /* AppDelegate.swift in Sources */,
@@ -305,6 +317,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TQWJUMYX89;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StoryPrompt/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -322,7 +335,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -333,6 +346,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TQWJUMYX89;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StoryPrompt/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -350,7 +364,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

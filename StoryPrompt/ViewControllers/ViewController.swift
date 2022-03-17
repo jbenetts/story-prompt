@@ -35,7 +35,15 @@ class ViewController: UIViewController {
     //Keyboard when is toached
     @IBAction func generateStoryPrompt(_ sender: Any) {
         updateStoryPrompt()
-        print(storyPrompt)
+        if storyPrompt.isValid(){ //We check if the storyPrompt is valid, at leats one field
+            print(storyPrompt)
+        } else { //We create the alert for an error message
+            let alert = UIAlertController(title: "Invalid Story Prompt", message: "Please fill at least one field   ", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: {action in
+            })
+            alert.addAction(action)
+            present(alert, animated: true)
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
