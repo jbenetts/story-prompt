@@ -8,7 +8,7 @@
 import UIKit
 import PhotosUI
 
-class ViewController: UIViewController {
+class AddStoryPromptViewController: UIViewController {
     let storyPrompt = StoryPromptEntry()
     //Items
     @IBOutlet weak var nounTextField: UITextField!
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         if storyPrompt.isValid(){ //We check if the storyPrompt is valid, at leats one field
             print(storyPrompt)
         } else { //We create the alert for an error message
-            let alert = UIAlertController(title: "Invalid Story Prompt", message: "Please fill at least one field   ", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Invalid Story Prompt", message: "Please fill at least one fo the fields", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default, handler: {action in
             })
             alert.addAction(action)
@@ -71,9 +71,17 @@ class ViewController: UIViewController {
         controller.delegate = self
         present(controller, animated: true)
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "StoryPrompt"{
+            guard let storyPromptViewController = segue.destination as? StoryPromptViewController else{
+                return
+            }
+            storyPromptViewController.storyPrompt = storyPrompt
+        }
+    }
 }
 
-extension ViewController : UITextFieldDelegate{
+extension AddStoryPromptViewController : UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         updateStoryPrompt()
@@ -81,7 +89,7 @@ extension ViewController : UITextFieldDelegate{
     }
 }
 
-extension ViewController : PHPickerViewControllerDelegate {
+extension AddStoryPromptViewController : PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         if !results.isEmpty{
             let result = results.first!

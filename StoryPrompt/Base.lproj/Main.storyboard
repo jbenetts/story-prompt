@@ -30,7 +30,7 @@
         <!--New Story Prompt-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StoryPrompt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AddStoryPromptViewController" customModule="StoryPrompt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,7 +145,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Generate Story Prompt"/>
                                         <connections>
-                                            <segue destination="fqE-p3-sye" kind="show" id="5z7-Su-bbn"/>
+                                            <action selector="generateStoryPrompt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="huw-oV-2iV"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -167,6 +167,7 @@
                         <outlet property="numberSlider" destination="mwb-Xs-zj6" id="TVc-m2-Qgw"/>
                         <outlet property="storyPromptImageView" destination="mOM-gS-XMP" id="csL-66-5gu"/>
                         <outlet property="verbTextField" destination="3h1-Pk-9ST" id="P0Z-nX-AQW"/>
+                        <segue destination="fqE-p3-sye" kind="show" identifier="StoryPrompt" id="7aA-VN-x0R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
